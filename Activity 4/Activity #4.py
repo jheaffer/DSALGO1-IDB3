@@ -1,19 +1,20 @@
 # 1. Create a list with squares of even numbers from 1 to 20
 ev_sqr = []
-for n in range(1, 21):
+for n in range(1, 20):
     if n % 2 == 0:
         ev_sqr.append(n**2)
 print("Squares of even numbers:", ev_sqr)
 
 # 2. Linear Search
-search_vals = [8**2, 4**2, 2**2]
+search_vals = [8**2, 4**2, 2**2, 25, 144]  # Added values both present (64, 16) and not present (25, 144)
 for t in search_vals:
     idx = -1
     for i in range(len(ev_sqr)):
         if ev_sqr[i] == t:
             idx = i
             break
-    print(f"Linear search for {t}: {'Found at index ' + str(idx) if idx != -1 else 'Not found'}")
+    result = 'The Data is Present' if idx != -1 else 'The Data is Not Present'
+    print(f"Linear search for {t}: {result}")
 
 # 3. Append odd numbers
 for n in range(1, 21):
@@ -31,7 +32,8 @@ for s in range(len(ev_sqr)):
 print("List after selection sort:", ev_sqr)
 
 # 5. Binary Search Returning True or False
-search_vals_bin = [3, 17, 19, 21]
+search_vals_bin = [3, 17, 19, 21, 64, 144]  # Added values both present (64) and not present (144)
+ev_sqr.sort()  # Ensure the list is sorted before binary search
 for t in search_vals_bin:
     lo = 0
     hi = len(ev_sqr) - 1
